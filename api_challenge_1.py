@@ -6,7 +6,6 @@ import os
 
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
-print(API_KEY)
 person=input("Name an Actor/Actress: ")
 url = f"https://api.themoviedb.org/3/search/person?api_key={API_KEY}&query={person}"
 response = requests.get(url)
@@ -26,7 +25,7 @@ data=list(zip(titles, popularity))
 df=pd.DataFrame(data, columns=["Title", "Popularity"])
 df.sort_values(by="Popularity", ascending=False, inplace=True)
 
-print(df.head(10))
+
 top_10_list=[i for i in df["Title"][:10]]
 path_list=[]
 
