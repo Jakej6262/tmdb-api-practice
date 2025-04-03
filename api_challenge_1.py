@@ -1,10 +1,12 @@
 import requests
 import webbrowser
 import pandas as pd
-import dotenv 
+from dotenv import load_dotenv
 import os
-dotenv.load_dotenv()
+
+load_dotenv()
 API_KEY = os.getenv("API_KEY")
+print(API_KEY)
 person=input("Name an Actor/Actress: ")
 url = f"https://api.themoviedb.org/3/search/person?api_key={API_KEY}&query={person}"
 response = requests.get(url)
